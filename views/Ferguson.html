@@ -1,0 +1,32 @@
+<head>
+</head>
+<body class="body">
+	
+
+
+	{% for tweets in data %}
+		<div>
+			{{ tweets.user.name }}
+			<br>
+			@{{ tweets.user.screen_name }}
+			<br>
+			{{ tweets.text }}
+			<br>
+			<br>
+		</div>
+	{% endfor %}
+
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+
+	<script>
+		var server = io.connect(document.location.origin);
+		server.emit('Ferguson');
+
+		server.on('Ftweet', function(data){
+			console.log('tweet received');
+			$(".body").append("<div>"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>");
+		})
+	</script>
+
+</body>

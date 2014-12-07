@@ -1,0 +1,16 @@
+{
+  "name": "TwitterPolitics",
+  "version": "1.0.0",
+  "description": "TwitterPolitics",
+  "main": "node server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "twit": "1.1.18",
+    "swig": "1.4.2",
+    "socket.io": "0.9.14"
+  }
+}
