@@ -1,11 +1,12 @@
 <head>
+	<link type="text/css" href = "Tweet.css" rel="stylesheet"/>
 </head>
 <body class="body">
 	
 
 
 	{% for tweets in data %}
-		<div id="5">
+		<div id="5" class="Tweet">
 			{{ tweets.user.name }}
 			<br>
 			@{{ tweets.user.screen_name }}
@@ -35,11 +36,11 @@
 					$("#"+j).attr("id",p);
 				}
 
-				$("body").prepend("<div id='1'>"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
+				$("body").prepend("<div id='1' class='Tweet'>"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
 				i=1;
 
 			} else {
-				$("body").prepend("<div id="+i+">"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
+				$("body").prepend("<div id="+i+" class='Tweet'>"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
 			}
 
 
