@@ -5,7 +5,7 @@
 
 
 	{% for tweets in data %}
-		<div>
+		<div id="5">
 			{{ tweets.user.name }}
 			<br>
 			@{{ tweets.user.screen_name }}
@@ -22,11 +22,29 @@
 	<script>
 		var server = io.connect(document.location.origin);
 		server.emit('Ferguson');
-
+		var i = 5;
 		server.on('Ftweet', function(data){
 			console.log('tweet received');
-			$(".body").append("<div>"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>");
-		})
+			i=i-1;
+			if(i==0){
+
+				$("#5").remove();
+
+				for (j=4; j>0; j--){
+					p=j+1;
+					$("#"+j).attr("id",p);
+				}
+
+				$("body").prepend("<div id='1'>"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
+				i=1;
+
+			} else {
+				$("body").prepend("<div id="+i+">"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
+			}
+
+
+
+		});
 	</script>
 
 </body>

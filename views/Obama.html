@@ -31,12 +31,15 @@
 			if(i==0){
 
 				$("#5").remove();
+
 				for (j=4; j>0; j--){
 					p=j+1;
 					$("#"+j).attr("id",p);
 				}
+
 				$("body").prepend("<div id='1'>"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
 				i=1;
+
 			} else {
 				$("body").prepend("<div id="+i+">"+data.user.name+"<br>@"+data.user.screen_name+"<br>"+data.text+"<br><br></div>")
 			}
